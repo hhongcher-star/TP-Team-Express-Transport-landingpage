@@ -2704,6 +2704,14 @@
         radial-gradient(circle at 100% 0%, rgba(242, 197, 0, 0.12), transparent 28%),
         #0d0e11;
       box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
+      transition: opacity 240ms ease, transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .booking-modal.open .booking-dialog {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     .booking-dialog-head {
@@ -2970,6 +2978,22 @@
 
     /* Keep the mobile drawer viewport-sized while the header is fixed. */
     @media (max-width: 560px) {
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        min-width: 0;
+        white-space: nowrap;
+      }
+
+      .brand-name,
+      .brand-type {
+        display: inline;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1;
+      }
+
       .nav.menu-open {
         backdrop-filter: none;
       }
@@ -3039,6 +3063,13 @@
 
       .nav.menu-open .menu-toggle {
         z-index: 1002;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .booking-modal,
+      .booking-dialog {
+        transition: none;
       }
     }
   </style>
@@ -3308,14 +3339,6 @@
             </select>
           </div>
           <div class="form-field">
-            <label for="booking-name">Full Name</label>
-            <input id="booking-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="form-field">
-            <label for="booking-phone">WhatsApp Number</label>
-            <input id="booking-phone" name="phone" type="tel" autocomplete="tel" placeholder="+65 / +60" required>
-          </div>
-          <div class="form-field">
             <label for="booking-pickup">Pickup Location</label>
             <select id="booking-pickup" name="pickup" required>
               <option value="">Select pickup location</option>
@@ -3364,6 +3387,13 @@
             </select>
           </div>
           <div class="form-field">
+            <label for="booking-trip">Trip Type</label>
+            <select id="booking-trip" name="trip" required>
+              <option value="one-way">One Way</option>
+              <option value="return">Return Trip</option>
+            </select>
+          </div>
+          <div class="form-field">
             <label for="booking-date">Travel Date</label>
             <input id="booking-date" name="date" type="date" required>
           </div>
@@ -3388,26 +3418,24 @@
             </select>
           </div>
           <div class="form-field full">
-            <label for="booking-vehicle">Preferred Vehicle</label>
+            <label for="booking-vehicle">Vehicle</label>
             <select id="booking-vehicle" name="vehicle" required>
               <option value="">Select vehicle type</option>
               <option>Sedan</option>
               <option>7 Seat MPV</option>
-              <option>Alphard / Vellfire</option>
+              <option>Alphard</option>
+              <option>Vellfire</option>
               <option>Alphard Pilot Seat</option>
               <option>Starex</option>
             </select>
           </div>
           <div class="form-field">
-            <label for="booking-flight">Flight Number (Optional)</label>
-            <input id="booking-flight" name="flight" type="text">
+            <label for="booking-name">Full Name</label>
+            <input id="booking-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required>
           </div>
           <div class="form-field">
-            <label for="booking-trip">Trip Type</label>
-            <select id="booking-trip" name="trip" required>
-              <option value="one-way">One Way</option>
-              <option value="return">Return Trip</option>
-            </select>
+            <label for="booking-phone">WhatsApp Number</label>
+            <input id="booking-phone" name="phone" type="tel" autocomplete="tel" placeholder="Enter your WhatsApp number" required>
           </div>
           <div class="form-field">
             <label for="booking-nationality">Nationality</label>
@@ -3421,15 +3449,23 @@
             </select>
           </div>
           <div class="form-field">
-            <label for="booking-extra-stops">Additional Stops</label>
-            <select id="booking-extra-stops" name="extraStops">
-              <option value="0">No additional stop</option>
-              <option value="1">1 stop (+S$10)</option>
-              <option value="2">2 stops (+S$20)</option>
-              <option value="3">3 stops (+S$30)</option>
-            </select>
+            <label for="booking-flight">Flight Number (Optional)</label>
+            <input id="booking-flight" name="flight" type="text" placeholder="e.g. SQ105">
           </div>
           <div class="form-field">
+            <label for="booking-extra-stops">Additional Stops</label>
+            <select id="booking-extra-stops" name="extraStops">
+              <option value="0">No additional stops</option>
+              <option value="1">1 additional stop (+S$10)</option>
+              <option value="2">2 additional stops (+S$20)</option>
+              <option value="3">3 additional stops (+S$30)</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="booking-notes">Additional Notes (Optional)</label>
+            <textarea id="booking-notes" name="notes" placeholder="Child seat or other special requests"></textarea>
+          </div>
+          <div class="form-field full">
             <label for="booking-payment">Payment Method</label>
             <select id="booking-payment" name="payment" required>
               <option value="">Select payment method</option>
@@ -3437,10 +3473,6 @@
               <option>Bank Transfer</option>
               <option>ZaloPay</option>
             </select>
-          </div>
-          <div class="form-field full">
-            <label for="booking-notes">Additional Notes</label>
-            <textarea id="booking-notes" name="notes" placeholder="Child seat, extra stops or other requests"></textarea>
           </div>
         </div>
         <aside class="fare-summary" aria-live="polite">
@@ -3454,7 +3486,7 @@
             <div><span>Additional stops</span><strong id="fare-stops">S$0</strong></div>
             <div><span>Trip multiplier</span><strong id="fare-trip">×1</strong></div>
           </div>
-          <p>Estimate only. The team will confirm availability and the final fare before your journey.</p>
+          <p>This is an estimated fare only. The final fare and vehicle arrangement will be confirmed with you after your booking request is reviewed.</p>
         </aside>
         <button class="booking-submit" type="submit">Confirm & Send via WhatsApp</button>
       </form>
@@ -3522,6 +3554,11 @@
       "Sentosa Singapore": "新加坡圣淘沙",
       "Marina Bay Cruise Centre": "滨海湾邮轮中心",
       "Marina Bay Sands": "滨海湾金沙",
+      "Johor Bahru": "新山",
+      "Desaru": "迪沙鲁",
+      "Malacca": "马六甲",
+      "Kuala Lumpur": "吉隆坡",
+      "Genting": "云顶",
       "1-4 Pax": "1-4 人",
       "4-6 Pax": "4-6 人",
       "5-7 Pax": "5-7 人",
@@ -3540,10 +3577,12 @@
       "Private Charter Request": "私人包车预约",
       "Book Your Journey": "预约您的行程",
       "Instant fare estimate": "即时车费估算",
-      "Select your route and vehicle to see an estimated charter price before submitting.": "选择路线和车型后，即可在提交前查看包车预估价格。",
+      "Select your route and vehicle to see an estimated charter price before submitting.": "选择路线与车型后，即可在提交预约前查看预估车费。",
       "Display Currency": "显示币种",
       "Full Name": "姓名",
+      "Enter your full name": "请输入您的姓名",
       "WhatsApp Number": "WhatsApp号码",
+      "Enter your WhatsApp number": "请输入您的 WhatsApp 号码",
       "Pickup Location": "上车地点",
       "Select pickup location": "选择上车地点",
       "Destination": "目的地",
@@ -3554,7 +3593,8 @@
       "Select passenger count": "选择乘客人数",
       "Luggage": "行李数量",
       "Select luggage count": "选择行李数量",
-      "Preferred Vehicle": "心仪车型",
+      "Preferred Vehicle": "车型",
+      "Vehicle": "车型",
       "Select vehicle type": "选择车型",
       "Flight Number (Optional)": "航班号码（选填）",
       "Trip Type": "行程类型",
@@ -3562,10 +3602,10 @@
       "Return Trip": "往返",
       "Nationality": "国籍",
       "Select nationality": "选择国籍",
-      "Singaporean": "新加坡籍",
-      "Malaysian": "马来西亚籍",
-      "Thai": "泰国籍",
-      "Vietnamese": "越南籍",
+      "Singaporean": "新加坡",
+      "Malaysian": "马来西亚",
+      "Thai": "泰国",
+      "Vietnamese": "越南",
       "Other": "其他",
       "Additional Stops": "额外停靠点",
       "No additional stop": "无需额外停靠",
@@ -3574,6 +3614,7 @@
       "Cash": "现金",
       "Bank Transfer": "银行转账",
       "Additional Notes": "其他备注",
+      "Additional Notes (Optional)": "其他备注（选填）",
       "Estimated Fare": "预估车费",
       "Select route & vehicle": "请选择路线与车型",
       "Your price breakdown will appear here.": "价格明细会显示在这里。",
@@ -3581,7 +3622,7 @@
       "Location surcharge": "地点附加费",
       "Additional stops": "额外停靠",
       "Trip multiplier": "行程倍数",
-      "Estimate only. The team will confirm availability and the final fare before your journey.": "此价格仅供预估，团队将在出发前确认车辆安排及最终收费。",
+      "This is an estimated fare only. The final fare and vehicle arrangement will be confirmed with you after your booking request is reviewed.": "以上价格仅供预估。最终车费及车辆安排将在确认预约后与您确认。",
       "Confirm & Send via WhatsApp": "确认并通过 WhatsApp 发送"
     };
 
@@ -3589,6 +3630,43 @@
       .filter((element) => element.children.length === 0 && element.textContent.trim())
       .map((element) => ({ element, en: element.textContent.trim() }))
       .filter(({ en }) => Object.prototype.hasOwnProperty.call(zh, en));
+
+    function updateBookingFormText() {
+      const isChinese = document.documentElement.lang === "zh-CN";
+      const currency = document.querySelector("#booking-currency")?.value || "SGD";
+      const stopSelect = document.querySelector("#booking-extra-stops");
+      const stopAmount = currency === "MYR" ? 30 : 10;
+      const currencyMark = currency === "MYR" ? "RM" : "S$";
+
+      document.querySelector("#booking-name").placeholder = isChinese ? "请输入您的姓名" : "Enter your full name";
+      document.querySelector("#booking-phone").placeholder = isChinese ? "请输入您的 WhatsApp 号码" : "Enter your WhatsApp number";
+      document.querySelector("#booking-flight").placeholder = isChinese ? "例如：SQ105" : "e.g. SQ105";
+      document.querySelector("#booking-notes").placeholder = isChinese ? "儿童座椅或其他特别需求" : "Child seat or other special requests";
+
+      if (stopSelect) {
+        [...stopSelect.options].forEach((option, index) => {
+          if (index === 0) {
+            option.textContent = isChinese ? "无需额外停靠" : "No additional stops";
+            return;
+          }
+          const amount = index * stopAmount;
+          option.textContent = isChinese
+            ? `${index} 个停靠点（+${currencyMark}${amount}）`
+            : `${index} additional stop${index > 1 ? "s" : ""} (+${currencyMark}${amount})`;
+        });
+      }
+
+      const pickupGroups = document.querySelectorAll("#booking-pickup optgroup");
+      const destinationGroups = document.querySelectorAll("#booking-destination optgroup");
+      if (pickupGroups.length === 2) {
+        pickupGroups[0].label = isChinese ? "新加坡" : "Singapore";
+        pickupGroups[1].label = isChinese ? "马来西亚" : "Malaysia";
+      }
+      if (destinationGroups.length === 2) {
+        destinationGroups[0].label = isChinese ? "马来西亚" : "Malaysia";
+        destinationGroups[1].label = isChinese ? "新加坡" : "Singapore";
+      }
+    }
 
     function setLanguage(language) {
       const isChinese = language === "zh";
@@ -3613,7 +3691,7 @@
       mobileMenuButton.setAttribute("aria-label", isChinese
         ? (menuIsOpen ? "关闭菜单" : "打开菜单")
         : (menuIsOpen ? "Close menu" : "Open menu"));
-      localStorage.setItem("tp-language", language);
+      updateBookingFormText();
       if (typeof updateFareEstimate === "function") updateFareEstimate();
     }
 
@@ -3670,7 +3748,8 @@
     const routePrices = {
       "Sedan": { changi: 130, "Johor Bahru": 80, Desaru: 160, Malacca: 240, "Kuala Lumpur": 330, Genting: 350 },
       "7 Seat MPV": { changi: 140, "Johor Bahru": 90, Desaru: 170, Malacca: 250, "Kuala Lumpur": 340, Genting: 360 },
-      "Alphard / Vellfire": { changi: 150, "Johor Bahru": 100, Desaru: 180, Malacca: 260, "Kuala Lumpur": 350, Genting: 370 },
+      "Alphard": { changi: 150, "Johor Bahru": 100, Desaru: 180, Malacca: 260, "Kuala Lumpur": 350, Genting: 370 },
+      "Vellfire": { changi: 150, "Johor Bahru": 100, Desaru: 180, Malacca: 260, "Kuala Lumpur": 350, Genting: 370 },
       "Alphard Pilot Seat": { changi: 180, "Johor Bahru": 130, Desaru: 210, Malacca: 290, "Kuala Lumpur": 380, Genting: 400 },
       "Starex": { changi: 200, "Johor Bahru": 150, Desaru: 230, Malacca: 310, "Kuala Lumpur": 400, Genting: 420 }
     };
@@ -3692,8 +3771,8 @@
       return "";
     }
 
-    function formatFare(amountSgd) {
-      if (bookingCurrency.value === "MYR") return `RM ${Math.round(amountSgd * SGD_TO_MYR).toLocaleString("en-MY")}`;
+    function formatFare(amountSgd, amountMyr = amountSgd * SGD_TO_MYR) {
+      if (bookingCurrency.value === "MYR") return `RM ${Math.round(amountMyr).toLocaleString("en-MY")}`;
       return `S$${amountSgd.toLocaleString("en-SG")}`;
     }
 
@@ -3716,23 +3795,29 @@
       }
 
       const locationSurcharge = selectedSurcharge(bookingPickup) + selectedSurcharge(bookingDestination);
-      const stops = Number(bookingExtraStops.value || 0) * 10;
+      const stopCount = Number(bookingExtraStops.value || 0);
+      const stops = stopCount * 10;
+      const stopsMyr = stopCount * 30;
       const multiplier = bookingTrip.value === "return" ? 2 : 1;
       const totalSgd = (base + locationSurcharge + stops) * multiplier;
+      const totalMyr = ((base + locationSurcharge) * SGD_TO_MYR + stopsMyr) * multiplier;
       const routeLabel = routeKey === "changi" ? "Changi Airport" : `Singapore ⇄ ${routeKey}`;
 
-      currentFare = { base, locationSurcharge, stops, multiplier, totalSgd, routeLabel };
+      currentFare = { base, locationSurcharge, stops, stopsMyr, multiplier, totalSgd, totalMyr, routeLabel };
       fareBreakdown.hidden = false;
-      totalElement.textContent = formatFare(totalSgd);
+      totalElement.textContent = formatFare(totalSgd, totalMyr);
       statusElement.textContent = `${vehicle} · ${routeLabel}`;
       document.querySelector("#fare-base").textContent = formatFare(base);
       document.querySelector("#fare-location").textContent = formatFare(locationSurcharge);
-      document.querySelector("#fare-stops").textContent = formatFare(stops);
+      document.querySelector("#fare-stops").textContent = formatFare(stops, stopsMyr);
       document.querySelector("#fare-trip").textContent = `×${multiplier}`;
     }
 
     [bookingPickup, bookingDestination, bookingVehicle, bookingCurrency, bookingTrip, bookingExtraStops]
-      .forEach((field) => field.addEventListener("change", updateFareEstimate));
+      .forEach((field) => field.addEventListener("change", () => {
+        updateBookingFormText();
+        updateFareEstimate();
+      }));
 
     const travelDate = document.querySelector("#booking-date");
     travelDate.min = new Date().toISOString().split("T")[0];
@@ -3742,7 +3827,7 @@
       closeMenu();
       bookingModal.classList.add("open");
       document.body.style.overflow = "hidden";
-      setTimeout(() => document.querySelector("#booking-name").focus(), 100);
+      bookingModal.querySelector(".booking-dialog").scrollTop = 0;
     }
 
     function closeBookingModal() {
@@ -3775,7 +3860,7 @@
       const keys = ["name", "phone", "pickup", "destination", "date", "time", "passengers", "luggage", "vehicle", "flight", "trip", "nationality", "extraStops", "payment", "notes"];
       const lines = keys.map((key, index) => `${labels[index]}: ${data.get(key) || "-"}`);
       const fareLine = currentFare
-        ? `${isChinese ? "预估车费" : "Estimated Fare"}: ${formatFare(currentFare.totalSgd)} (${currentFare.routeLabel})`
+        ? `${isChinese ? "预估车费" : "Estimated Fare"}: ${formatFare(currentFare.totalSgd, currentFare.totalMyr)} (${currentFare.routeLabel})`
         : `${isChinese ? "预估车费" : "Estimated Fare"}: ${isChinese ? "需人工报价" : "Manual quotation required"}`;
       lines.push(fareLine);
       window.open(`https://wa.me/?text=${encodeURIComponent([heading, "", ...lines].join("\n"))}`, "_blank", "noopener");
@@ -3785,7 +3870,7 @@
       if (event.key === "Escape") closeMenu();
     });
 
-    setLanguage(localStorage.getItem("tp-language") || "zh");
+    setLanguage("en");
   </script>
 </body>
 </html>
