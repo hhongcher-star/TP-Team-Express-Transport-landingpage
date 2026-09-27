@@ -1,0 +1,3791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP Team Express Transport | Singapore Malaysia Luxury Charter</title>
+  <style>
+    :root {
+      --bg: #070707;
+      --panel: #111111;
+      --panel-soft: #171717;
+      --text: #f7f3e8;
+      --muted: #b8b1a0;
+      --line: #2b2618;
+      --gold: #f5c542;
+      --gold-deep: #a97806;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(245, 197, 66, 0.16), transparent 28%),
+        linear-gradient(180deg, #0d0d0b 0%, #050505 52%, #090806 100%);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(245, 197, 66, 0.14);
+      background: rgba(7, 7, 7, 0.86);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .brand-name {
+      color: var(--gold);
+    }
+
+    .brand-type {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(245, 197, 66, 0.35);
+      border-radius: 8px;
+      background: linear-gradient(145deg, #1d1809, #090909);
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid #4a4a4a;
+      border-radius: 2px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 5px auto;
+      background: #ffffff;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .nav.menu-open .menu-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav.menu-open .menu-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav.menu-open .menu-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .menu-backdrop {
+      display: none;
+    }
+
+    .language-switcher {
+      display: flex;
+      padding: 3px;
+      border: 1px solid rgba(245, 197, 66, 0.28);
+      border-radius: 8px;
+      background: #0d0d0d;
+    }
+
+    .language-switcher button {
+      min-width: 42px;
+      height: 32px;
+      padding: 0 9px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--gold);
+      color: #12100a;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #12100a;
+      box-shadow: 0 14px 34px rgba(245, 197, 66, 0.22);
+    }
+
+    .btn-secondary {
+      border-color: rgba(245, 197, 66, 0.34);
+      color: var(--gold);
+      background: rgba(245, 197, 66, 0.04);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px 56px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(245, 197, 66, 0.22);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(245, 197, 66, 0.06);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-panel {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.82)),
+        url("https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1100&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .hero-card {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 22px;
+      border: 1px solid rgba(245, 197, 66, 0.24);
+      border-radius: 8px;
+      background: rgba(8, 8, 8, 0.82);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .hero-stats {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 74px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 22px;
+      border: 1px solid rgba(245, 197, 66, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat b {
+      display: block;
+      color: var(--gold);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 82px 24px;
+      border-top: 1px solid rgba(245, 197, 66, 0.1);
+    }
+
+    .section-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      padding: 26px;
+      border: 1px solid rgba(245, 197, 66, 0.15);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      background: rgba(245, 197, 66, 0.12);
+      color: var(--gold);
+      font-size: 21px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pricing-note {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 18px;
+      padding: 20px 22px;
+      border: 1px solid rgba(245, 197, 66, 0.22);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(245, 197, 66, 0.1), rgba(255, 255, 255, 0.03));
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      border: 1px solid rgba(245, 197, 66, 0.16);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .price-card-head {
+      padding: 22px 22px 16px;
+      border-bottom: 1px solid rgba(245, 197, 66, 0.1);
+    }
+
+    .price-card h3 {
+      color: var(--gold);
+      font-size: 24px;
+    }
+
+    .price-card small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+
+    .route-list {
+      padding: 8px 18px 18px;
+    }
+
+    .route {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 48px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      color: #eee5cd;
+      font-size: 14px;
+    }
+
+    .route:last-child {
+      border-bottom: 0;
+    }
+
+    .route span:first-child {
+      min-width: 0;
+    }
+
+    .route strong {
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: 15px;
+    }
+
+    .cta {
+      padding-bottom: 94px;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(245, 197, 66, 0.04), rgba(245, 197, 66, 0.1)),
+        #070707;
+    }
+
+    .cta .section-head {
+      margin: 0 auto 28px;
+    }
+
+    .footer {
+      padding: 30px 24px;
+      border-top: 1px solid rgba(245, 197, 66, 0.12);
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 58px;
+      }
+
+      .hero-panel {
+        min-height: 420px;
+      }
+
+      .hero-stats,
+      .features,
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-inner {
+        min-height: 66px;
+        padding: 11px 16px;
+      }
+
+      .brand span {
+        max-width: 205px;
+        line-height: 1.2;
+        font-size: 15px;
+      }
+
+      .nav-actions {
+        position: fixed;
+        z-index: 18;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        width: min(86vw, 380px);
+        padding: 82px 24px 24px;
+        border-left: 1px solid #303030;
+        background: #101010;
+        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.3);
+        transform: translateX(105%);
+        transition: transform 240ms ease;
+        flex-direction: column;
+        align-items: stretch;
+        overflow-y: auto;
+      }
+
+      .nav.menu-open .nav-actions {
+        transform: translateX(0);
+      }
+
+      .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 20;
+        flex: 0 0 auto;
+      }
+
+      .nav.menu-open .menu-toggle {
+        position: fixed;
+        top: 11px;
+        right: 16px;
+      }
+
+      .menu-backdrop {
+        position: fixed;
+        z-index: 17;
+        inset: 0;
+        display: block;
+        border: 0;
+        background: rgba(0, 0, 0, 0.62);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 240ms ease, visibility 240ms ease;
+      }
+
+      .nav.menu-open .menu-backdrop {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links {
+        display: grid;
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        min-height: 52px;
+        border-bottom: 1px solid #303030;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .nav-book {
+        width: 100%;
+        min-height: 48px;
+        margin-top: 14px;
+        margin-left: 0;
+        border: 0;
+        color: #111111;
+      }
+
+      .language-switcher {
+        width: 100%;
+        margin-top: auto;
+        padding: 4px;
+      }
+
+      .language-switcher button {
+        width: 50%;
+        height: 40px;
+      }
+
+      .hero,
+      section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero {
+        padding-top: 44px;
+        gap: 30px;
+      }
+
+      .hero-panel {
+        min-height: 360px;
+      }
+
+      .hero-card {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        padding: 18px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .features,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-note {
+        display: block;
+      }
+
+      .pricing-note span {
+        display: block;
+        margin-top: 8px;
+        color: var(--text);
+      }
+    }
+
+    /* Restrained black, white and yellow brand direction */
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --panel-soft: #f4f4f2;
+      --text: #111111;
+      --muted: #626262;
+      --line: #d8d8d2;
+      --gold: #f2c500;
+      --gold-deep: #c8a200;
+      --white: #ffffff;
+      --shadow: none;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .page {
+      background: #ffffff;
+    }
+
+    .nav {
+      border-bottom: 1px solid #292929;
+      background: #101010;
+      backdrop-filter: none;
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      min-height: 92px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    .brand-mark {
+      border: 0;
+      border-radius: 2px;
+      background: var(--gold);
+      color: #111111;
+    }
+
+    .nav-links {
+      color: #d2d2d2;
+    }
+
+    .nav-links > a:not(.btn) {
+      position: relative;
+      padding: 12px 0;
+      color: #eeeeee;
+      font-weight: 700;
+    }
+
+    .nav-links > a:not(.btn)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+    }
+
+    .nav-links > a:not(.btn):hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-book {
+      min-width: 146px;
+      min-height: 50px;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+
+    .book-arrow {
+      margin-left: 18px;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .language-switcher {
+      border-color: #454545;
+      border-radius: 999px;
+      background: #1c1c1c;
+    }
+
+    .language-switcher button {
+      border-radius: 999px;
+      color: #d8d8d8;
+    }
+
+    .btn {
+      border-radius: 2px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111111;
+      box-shadow: none;
+    }
+
+    .btn-primary:hover {
+      background: #ffdb19;
+    }
+
+    .btn-secondary {
+      border-color: #ffffff;
+      color: #ffffff;
+      background: transparent;
+    }
+
+    .hero {
+      max-width: none;
+      min-height: 690px;
+      padding: 82px max(24px, calc((100vw - 1120px) / 2));
+      grid-template-columns: 1fr;
+      background:
+        linear-gradient(90deg, rgba(8, 8, 8, 0.94) 0%, rgba(8, 8, 8, 0.78) 39%, rgba(8, 8, 8, 0.24) 68%, rgba(8, 8, 8, 0.08) 100%),
+        url("https://images.pexels.com/photos/36377051/pexels-photo-36377051.jpeg?auto=compress&cs=tinysrgb&w=1920") center 42% / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .hero > div:first-child {
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      padding: 0 0 11px;
+      border: 0;
+      border-bottom: 3px solid var(--gold);
+      border-radius: 0;
+      background: transparent;
+      color: var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(44px, 5.6vw, 76px);
+      line-height: 1.02;
+    }
+
+    .hero-copy {
+      color: #c7c7c7;
+    }
+
+    .hero-panel {
+      display: none;
+    }
+
+    .hero-panel::after {
+      display: none;
+    }
+
+    .hero-card {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 24px;
+      border: 0;
+      border-left: 5px solid var(--gold);
+      border-radius: 0;
+      background: rgba(15, 15, 15, 0.92);
+      backdrop-filter: none;
+      color: #ffffff;
+    }
+
+    .hero-stats {
+      max-width: none;
+      padding: 0 max(24px, calc((100vw - 1280px) / 2));
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #0c0d10;
+    }
+
+    .stat {
+      min-height: 132px;
+      padding: 30px 34px;
+      border: 0;
+      border-right: 1px solid #292a2e;
+      border-radius: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat b {
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: clamp(28px, 2.5vw, 40px);
+      line-height: 1;
+    }
+
+    .stat span {
+      color: #a8acb8;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    section {
+      border-top: 1px solid #deded8;
+    }
+
+    .section-kicker {
+      color: #8a7200;
+    }
+
+    #about {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    #about .section-head {
+      display: grid;
+      max-width: none;
+      grid-template-columns: 180px 1fr;
+      column-gap: 48px;
+      margin-bottom: 0;
+    }
+
+    #about .section-head h2,
+    #about .section-head p {
+      grid-column: 2;
+    }
+
+    #about .section-kicker {
+      grid-row: 1 / span 2;
+      padding-top: 8px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .features {
+      gap: 0;
+      border-top: 1px solid #111111;
+      border-bottom: 1px solid #111111;
+    }
+
+    .feature {
+      padding: 28px 24px;
+      border: 0;
+      border-right: 1px solid #d7d7d2;
+      border-radius: 0;
+      background: #ffffff;
+    }
+
+    .feature:last-child {
+      border-right: 0;
+    }
+
+    .feature-icon {
+      width: auto;
+      height: auto;
+      display: block;
+      margin-bottom: 28px;
+      border-radius: 0;
+      background: transparent;
+      color: #b39300;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .pricing-note {
+      border: 0;
+      border-radius: 0;
+      background: var(--gold);
+      color: #111111;
+    }
+
+    .pricing-grid {
+      gap: 12px;
+    }
+
+    .price-card {
+      border: 1px solid #cecec8;
+      border-radius: 2px;
+      background: #ffffff;
+    }
+
+    .price-card-head {
+      border-bottom: 1px solid #d8d8d2;
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .price-card h3 {
+      color: var(--gold);
+    }
+
+    .price-card small {
+      color: #c9c9c9;
+    }
+
+    .route {
+      border-bottom-color: #e4e4df;
+      color: #222222;
+    }
+
+    .route strong {
+      color: #6e5a00;
+    }
+
+    .cta {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .cta .section-head p {
+      color: #c4c4c4;
+    }
+
+    .footer {
+      border-top: 1px solid #303030;
+      background: #111111;
+      color: #a7a7a7;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: auto;
+        background-position: 58% center;
+      }
+
+      .feature:nth-child(2) {
+        border-right: 0;
+      }
+
+      .feature:nth-child(-n + 2) {
+        border-bottom: 1px solid #d7d7d2;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 620px;
+        padding: 76px 16px 50px;
+        align-items: end;
+        background:
+          linear-gradient(180deg, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.6) 38%, rgba(8, 8, 8, 0.98) 78%),
+          url("https://images.pexels.com/photos/36377051/pexels-photo-36377051.jpeg?auto=compress&cs=tinysrgb&w=1200") 61% center / cover no-repeat;
+      }
+
+      h1 {
+        font-size: clamp(38px, 12vw, 52px);
+        line-height: 1.04;
+      }
+
+      .eyebrow {
+        max-width: 100%;
+        font-size: 11px;
+        line-height: 1.4;
+      }
+
+      .hero-copy {
+        margin-top: 18px;
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 26px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      .nav-book {
+        width: 100%;
+        min-height: 50px;
+        margin: 14px 0 0;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid #292a2e;
+      }
+
+      #about .section-head {
+        display: block;
+      }
+
+      #about .section-kicker {
+        margin-bottom: 18px;
+      }
+
+      .feature,
+      .feature:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid #d7d7d2;
+      }
+
+      .feature:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .about-showcase {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.98) 37%, rgba(255, 255, 255, 0.72) 50%, rgba(255, 255, 255, 0) 67%),
+        url("assets/about-charter.png") center / cover no-repeat;
+    }
+
+    #about.about-showcase {
+      padding-top: 74px;
+      padding-bottom: 62px;
+    }
+
+    .about-showcase .section-inner {
+      width: 100%;
+    }
+
+    .about-showcase .about-content {
+      width: min(58%, 690px);
+    }
+
+    .about-showcase .section-head {
+      display: block;
+      max-width: 690px;
+      margin: 0;
+    }
+
+    .about-showcase .section-kicker {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding-top: 14px;
+      border-top: 5px solid var(--gold);
+      color: #8c7200;
+    }
+
+    .about-showcase .section-head h2,
+    .about-showcase .section-head p {
+      grid-column: auto;
+    }
+
+    .about-showcase h2 {
+      max-width: 650px;
+      font-size: clamp(38px, 4.6vw, 64px);
+    }
+
+    .about-showcase h2 .accent {
+      color: #d7ad00;
+    }
+
+    .about-showcase .section-head p {
+      max-width: 620px;
+      margin-top: 22px;
+      color: #666a72;
+      font-size: 16px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 0;
+      margin-top: 34px;
+    }
+
+    .about-point {
+      display: grid;
+      grid-template-columns: 46px auto;
+      gap: 12px;
+      align-items: center;
+      min-width: 170px;
+      padding-right: 24px;
+      margin-right: 24px;
+      border-right: 1px solid #d8d8d2;
+    }
+
+    .about-point:last-child {
+      min-width: 210px;
+      padding-right: 0;
+      margin-right: 0;
+      border-right: 0;
+    }
+
+    .about-point-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff5cf;
+      color: #9a7b00;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .about-point strong,
+    .about-point small {
+      display: block;
+    }
+
+    .about-point strong {
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .about-point small {
+      margin-top: 4px;
+      color: #737780;
+      font-size: 13px;
+    }
+
+    .about-route {
+      display: flex;
+      align-items: center;
+      max-width: 620px;
+      gap: 18px;
+      margin-top: 52px;
+      color: #1e1e1e;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    .about-route-line {
+      position: relative;
+      flex: 1;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .about-route-line::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: 0;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .about-visual {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .about-showcase .about-content {
+        width: 70%;
+      }
+
+      .about-points {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .about-point,
+      .about-point:last-child {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border-right: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #about.about-showcase {
+        display: block;
+        padding: 64px 16px 0;
+        background: #ffffff;
+      }
+
+      .about-showcase .about-content {
+        width: 100%;
+      }
+
+      .about-showcase h2 {
+        font-size: 36px;
+      }
+
+      .about-points {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-point:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .about-route {
+        margin: 38px 0 28px;
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .about-visual {
+        display: block;
+        width: calc(100% + 32px);
+        aspect-ratio: 16 / 10;
+        margin-left: -16px;
+        background: url("assets/about-charter.png") 70% center / cover no-repeat;
+      }
+    }
+
+    /* Dark premium theme and image-led service cards */
+    body,
+    .page {
+      background: #08090b;
+      color: #ffffff;
+    }
+
+    section {
+      border-top-color: #25262a;
+      background: #08090b;
+    }
+
+    .section-head p,
+    .feature p {
+      color: #a9adb6;
+    }
+
+    .brand {
+      gap: 8px;
+      font-family: "Arial Black", Arial, Helvetica, sans-serif;
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    .brand-name {
+      color: var(--gold);
+      text-shadow: 0 0 18px rgba(242, 197, 0, 0.12);
+    }
+
+    .brand-type {
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .language-switcher {
+      position: relative;
+      overflow: hidden;
+      background: #111216;
+    }
+
+    .language-switcher button {
+      position: relative;
+      z-index: 1;
+      transition: color 160ms ease, background 180ms ease, transform 100ms ease;
+    }
+
+    .language-switcher button:hover {
+      color: #ffffff;
+    }
+
+    .language-switcher button:active {
+      transform: scale(0.9);
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      animation: language-press 240ms ease;
+    }
+
+    @keyframes language-press {
+      0% { transform: scale(1); }
+      45% { transform: scale(0.88); }
+      100% { transform: scale(1); }
+    }
+
+    .about-showcase {
+      background:
+        linear-gradient(90deg, #08090b 0%, #08090b 38%, rgba(8, 9, 11, 0.94) 49%, rgba(8, 9, 11, 0.28) 72%, rgba(8, 9, 11, 0.08) 100%),
+        url("assets/about-charter.png") center / cover no-repeat;
+    }
+
+    .about-showcase .section-head p {
+      color: #b4b7be;
+    }
+
+    .about-point {
+      border-right-color: #34363b;
+    }
+
+    .about-point-icon {
+      background: #26230f;
+      color: var(--gold);
+    }
+
+    .about-point small {
+      color: #a5a9b2;
+    }
+
+    .about-route {
+      color: #ffffff;
+    }
+
+    #services {
+      padding-top: 104px;
+      padding-bottom: 110px;
+    }
+
+    #services .section-head {
+      max-width: 780px;
+      margin-bottom: 42px;
+    }
+
+    #services .section-head h2 {
+      font-size: clamp(40px, 5vw, 64px);
+    }
+
+    .features {
+      gap: 14px;
+      border: 0;
+    }
+
+    .feature {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 14px 14px;
+      border: 1px solid #2b2c30;
+      border-radius: 8px;
+      background: #121317;
+      overflow: hidden;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+      border-color: #5d5219;
+      background: #17181c;
+    }
+
+    .feature-icon {
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 6px 18px;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .feature-icon::after {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: #6f6116;
+    }
+
+    .feature h3,
+    .feature p {
+      margin-right: 6px;
+      margin-left: 6px;
+    }
+
+    .feature h3 {
+      color: #ffffff;
+      font-size: 19px;
+    }
+
+    .feature p {
+      min-height: 88px;
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .feature-media {
+      position: relative;
+      min-height: 190px;
+      margin-top: auto;
+      border-radius: 6px;
+      background-position: center;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .feature-media-car {
+      background-image: url("assets/about-charter.png");
+      background-position: 73% center;
+    }
+
+    .feature-media-airport {
+      background-image: url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=82");
+    }
+
+    .feature-media-driver {
+      background-image: url("https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=82");
+    }
+
+    .feature-media-interior {
+      background-image: url("https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=82");
+    }
+
+    .feature-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.35));
+    }
+
+    .feature-media span {
+      position: absolute;
+      z-index: 1;
+      right: 12px;
+      bottom: 12px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #111111;
+      font-size: 22px;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .feature:hover .feature-media span {
+      transform: translateX(4px);
+      background: #ffffff;
+    }
+
+    #pricing {
+      background: #0d0e11;
+    }
+
+    .price-card {
+      border-color: #303137;
+      background: #15161a;
+    }
+
+    .price-card-head {
+      border-bottom-color: #323339;
+      background: #101114;
+    }
+
+    .route {
+      border-bottom-color: #2a2b30;
+      color: #f0f0f0;
+    }
+
+    .route strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 860px) {
+      .feature,
+      .feature:nth-child(2) {
+        border: 1px solid #2b2c30;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #about.about-showcase {
+        background: #08090b;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .about-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, #08090b 0%, transparent 30%);
+      }
+
+      #services {
+        padding-top: 72px;
+        padding-bottom: 76px;
+      }
+
+      #services .section-head h2 {
+        font-size: 38px;
+      }
+
+      .feature {
+        padding: 22px 14px 14px;
+      }
+
+      .feature p {
+        min-height: 0;
+        margin-bottom: 22px;
+      }
+
+      .feature-media {
+        min-height: 220px;
+      }
+
+      .brand {
+        display: block;
+        font-size: 15px;
+        white-space: normal;
+      }
+
+      .brand-name,
+      .brand-type {
+        display: block;
+      }
+
+      .brand-type {
+        margin-top: 1px;
+        font-size: 13px;
+      }
+    }
+
+    /* Compact layout refinement */
+    .section-inner {
+      max-width: 1400px;
+    }
+
+    #about.about-showcase {
+      min-height: 500px;
+      padding: 52px 32px 46px;
+    }
+
+    .about-showcase .about-content {
+      width: min(52%, 650px);
+    }
+
+    .about-showcase .section-kicker {
+      margin-bottom: 20px;
+      padding-top: 10px;
+      border-top-width: 3px;
+    }
+
+    .about-showcase h2 {
+      max-width: 610px;
+      font-size: clamp(34px, 3.6vw, 50px);
+      line-height: 1.02;
+    }
+
+    .about-showcase .section-head p {
+      max-width: 590px;
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .about-points {
+      margin-top: 24px;
+    }
+
+    .about-point {
+      grid-template-columns: 40px auto;
+      gap: 10px;
+      min-width: 150px;
+      padding-right: 17px;
+      margin-right: 17px;
+    }
+
+    .about-point:last-child {
+      min-width: 190px;
+    }
+
+    .about-point-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 11px;
+    }
+
+    .about-point strong {
+      font-size: 17px;
+    }
+
+    .about-point small {
+      font-size: 12px;
+    }
+
+    .about-route {
+      max-width: 570px;
+      margin-top: 34px;
+    }
+
+    #services {
+      padding: 78px 32px 86px;
+    }
+
+    #services .section-head {
+      margin-bottom: 32px;
+    }
+
+    #services .section-head h2 {
+      font-size: clamp(36px, 4vw, 54px);
+    }
+
+    .journey-accent {
+      display: block;
+      color: var(--gold);
+    }
+
+    .features {
+      gap: 12px;
+    }
+
+    .feature {
+      position: relative;
+      padding: 18px 12px 12px;
+      border-color: #303137;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.025), transparent 48%),
+        #121317;
+    }
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 12px;
+      left: 12px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent 65%);
+      opacity: 0.65;
+    }
+
+    .feature-icon {
+      margin-bottom: 14px;
+    }
+
+    .feature h3 {
+      font-size: 18px;
+    }
+
+    .feature p {
+      min-height: 66px;
+      margin-top: 8px;
+      margin-bottom: 18px;
+      font-size: 12.5px;
+    }
+
+    .feature-media {
+      min-height: 166px;
+      border: 1px solid #292b30;
+    }
+
+    .feature-media-airport {
+      background-image: url("https://images.pexels.com/photos/36921163/pexels-photo-36921163.jpeg?auto=compress&cs=tinysrgb&w=1000");
+      background-position: center 58%;
+    }
+
+    .feature-media span {
+      width: 40px;
+      height: 40px;
+      right: 10px;
+      bottom: 10px;
+      border: 4px solid rgba(8, 9, 11, 0.78);
+      font-size: 19px;
+    }
+
+    @media (max-width: 1100px) {
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature p {
+        min-height: 48px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #about.about-showcase {
+        min-height: auto;
+        padding: 54px 16px 0;
+      }
+
+      .about-showcase h2 {
+        font-size: 34px;
+      }
+
+      #services {
+        padding: 64px 16px 70px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .feature-media {
+        min-height: 210px;
+      }
+    }
+
+    /* Light service cards and refined About information panel */
+    .feature {
+      border-color: #dedede;
+      background: #f7f7f5;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature::before {
+      right: 18px;
+      left: 18px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0 22%, #dedbd0 22% 100%);
+      opacity: 1;
+    }
+
+    .feature:hover {
+      border-color: var(--gold);
+      background: #ffffff;
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature h3 {
+      color: #111111;
+    }
+
+    .feature p {
+      color: #62656c;
+    }
+
+    .feature-icon {
+      color: #9a7b00;
+    }
+
+    .feature-icon::after {
+      background: #c9b54e;
+    }
+
+    .feature-media {
+      border: 0;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+
+    .feature-media span {
+      border-color: #f7f7f5;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-points {
+      max-width: 620px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      padding: 0;
+      border: 1px solid #303136;
+      border-bottom: 0;
+      border-radius: 6px 6px 0 0;
+      background: rgba(14, 15, 18, 0.9);
+      overflow: hidden;
+    }
+
+    .about-point,
+    .about-point:last-child {
+      min-width: 0;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      margin: 0;
+      border-right: 1px solid #303136;
+    }
+
+    .about-point:last-child {
+      border-right: 0;
+    }
+
+    .about-point-icon {
+      width: auto;
+      height: auto;
+      display: block;
+      flex: 0 0 auto;
+      border-radius: 0;
+      background: transparent;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .about-point strong {
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    .about-point small {
+      color: #9296a0;
+      font-size: 11px;
+    }
+
+    .about-route {
+      max-width: 620px;
+      min-height: 52px;
+      margin-top: 0;
+      padding: 0 18px;
+      border: 1px solid #303136;
+      border-radius: 0 0 6px 6px;
+      background: #111216;
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+
+    .about-route-line {
+      background: linear-gradient(90deg, #60520b, var(--gold));
+    }
+
+    @media (max-width: 860px) {
+      .about-points {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .about-point,
+      .about-point:last-child {
+        min-width: 0;
+        padding: 14px 10px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .about-points {
+        grid-template-columns: 1fr;
+      }
+
+      .about-point,
+      .about-point:last-child {
+        min-height: 68px;
+        padding: 12px 16px;
+        border-right: 0;
+        border-bottom: 1px solid #303136;
+      }
+
+      .about-point:last-child {
+        grid-column: auto;
+        border-bottom: 0;
+      }
+
+      .about-route {
+        margin-top: 0;
+      }
+    }
+
+    /* Selected-location surcharge gallery */
+    .pricing-note {
+      align-items: center;
+      margin-bottom: 38px;
+      padding: 14px 18px;
+      border: 1px solid #8c7300;
+      border-radius: 6px;
+      background: linear-gradient(90deg, rgba(242, 197, 0, 0.12), rgba(242, 197, 0, 0.035));
+      color: #ffffff;
+    }
+
+    .pricing-note > div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pricing-note > div span {
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .pricing-note b {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #111111;
+    }
+
+    .pricing-note strong {
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .location-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+
+    .location-head span {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .location-head h3 {
+      margin-top: 5px;
+      color: #ffffff;
+      font-size: 28px;
+    }
+
+    .location-head p {
+      max-width: 480px;
+      color: #9da1aa;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 66px;
+    }
+
+    .location-card {
+      position: relative;
+      min-height: 220px;
+      border: 1px solid #3d3a29;
+      border-radius: 6px;
+      background-position: center;
+      background-size: cover;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .location-card::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 30%, rgba(0, 0, 0, 0.88) 100%);
+    }
+
+    .location-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .location-card-copy {
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      left: 18px;
+    }
+
+    .location-card h4 {
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+    }
+
+    .location-card strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .location-merlion {
+      background-image: url("https://images.pexels.com/photos/29699025/pexels-photo-29699025.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .location-harbourfront {
+      background-image: url("https://images.pexels.com/photos/37303705/pexels-photo-37303705.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .location-gardens {
+      background-image: url("https://images.pexels.com/photos/36882387/pexels-photo-36882387.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .location-universal {
+      background-image: url("https://images.pexels.com/photos/4237492/pexels-photo-4237492.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .location-sentosa {
+      background-image: url("https://images.pexels.com/photos/28748435/pexels-photo-28748435.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .location-cruise {
+      background-image: url("https://images.pexels.com/photos/813011/pexels-photo-813011.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .location-marina {
+      background-image: url("https://images.pexels.com/photos/13551306/pexels-photo-13551306.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    #about.about-showcase {
+      min-height: 440px;
+    }
+
+    @media (max-width: 1100px) {
+      .location-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      #about.about-showcase {
+        min-height: auto;
+      }
+
+      .pricing-note {
+        display: flex;
+        padding: 14px;
+      }
+
+      .pricing-note > div {
+        align-items: flex-start;
+      }
+
+      .pricing-note strong {
+        margin-top: 12px;
+        margin-left: 44px;
+      }
+
+      .location-head {
+        display: block;
+      }
+
+      .location-head p {
+        margin-top: 10px;
+        text-align: left;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 52px;
+      }
+
+      .location-card {
+        min-height: 230px;
+      }
+    }
+
+    /* Full-bleed image service cards */
+    .feature {
+      position: relative;
+      min-height: 420px;
+      display: block;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      background: #15161a;
+      box-shadow: none;
+      isolation: isolate;
+    }
+
+    .feature::before {
+      z-index: 3;
+      top: 20px;
+      right: auto;
+      left: 22px;
+      width: 64px;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .feature:hover {
+      border: 0;
+      background: #15161a;
+      box-shadow: none;
+      transform: translateY(-5px);
+    }
+
+    .feature-media {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      min-height: 0;
+      margin: 0;
+      border: 0;
+      border-radius: 6px;
+      box-shadow: none;
+      transition: transform 500ms ease;
+    }
+
+    .feature:hover .feature-media {
+      transform: scale(1.035);
+    }
+
+    .feature-media::after {
+      background:
+        linear-gradient(180deg, rgba(5, 6, 8, 0.88) 0%, rgba(5, 6, 8, 0.52) 48%, rgba(5, 6, 8, 0.9) 100%);
+    }
+
+    .feature-icon,
+    .feature h3,
+    .feature p {
+      position: relative;
+      z-index: 2;
+      margin-right: 22px;
+      margin-left: 22px;
+    }
+
+    .feature-icon {
+      padding-top: 40px;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .feature-icon::after {
+      background: rgba(242, 197, 0, 0.7);
+    }
+
+    .feature h3 {
+      color: #ffffff;
+      font-size: 22px;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.72);
+    }
+
+    .feature p {
+      max-width: 300px;
+      min-height: 0;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 13px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.82);
+    }
+
+    .feature-media span {
+      right: 18px;
+      bottom: 18px;
+      border-color: rgba(8, 9, 11, 0.5);
+    }
+
+    @media (max-width: 1100px) {
+      .feature {
+        min-height: 390px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .feature {
+        min-height: 390px;
+        padding: 0;
+      }
+
+      .feature-media {
+        min-height: 0;
+      }
+    }
+
+    /* Final spacing and hierarchy pass */
+    .feature {
+      min-height: 340px;
+    }
+
+    .feature::before {
+      top: 18px;
+      left: 20px;
+      width: 58px;
+    }
+
+    .feature-icon,
+    .feature h3,
+    .feature p {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+
+    .feature-icon {
+      padding-top: 35px;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+
+    .feature h3 {
+      max-width: 310px;
+      font-size: clamp(22px, 1.8vw, 29px);
+      line-height: 1.08;
+    }
+
+    .feature p {
+      max-width: 340px;
+      margin-top: 9px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .feature-media::after {
+      background:
+        linear-gradient(180deg, rgba(5, 6, 8, 0.78) 0%, rgba(5, 6, 8, 0.38) 46%, rgba(5, 6, 8, 0.7) 100%);
+    }
+
+    .location-head {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    .location-head p {
+      max-width: 660px;
+      margin-top: 10px;
+      color: #aeb2bb;
+      text-align: left;
+      line-height: 1.55;
+    }
+
+    .pricing-note {
+      margin-top: 22px;
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 1100px) {
+      .feature {
+        min-height: 330px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .feature {
+        min-height: 330px;
+      }
+
+      .feature h3 {
+        font-size: 26px;
+      }
+
+      .location-head p {
+        margin-top: 8px;
+      }
+
+      .pricing-note {
+        margin-top: 18px;
+      }
+    }
+
+    /* Vehicle-led pricing cards */
+    .price-card {
+      border-color: #34353a;
+      background: #131418;
+    }
+
+    .price-card-head {
+      min-height: 168px;
+      display: grid;
+      grid-template-columns: minmax(150px, 0.8fr) minmax(220px, 1.2fr);
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      border-bottom-color: #34353a;
+      background:
+        linear-gradient(110deg, #0d0e11 0%, #121318 52%, #1a1b1f 100%);
+      overflow: hidden;
+    }
+
+    .price-card h3 {
+      font-size: clamp(23px, 2vw, 30px);
+      line-height: 1.08;
+    }
+
+    .price-card small {
+      margin-top: 9px;
+      color: #f0f0f0;
+      font-size: 14px;
+    }
+
+    .vehicle-visual {
+      width: 100%;
+      height: 132px;
+      border-radius: 4px;
+      background-position: center;
+      background-size: cover;
+      filter: saturate(0.9) contrast(1.04);
+    }
+
+    .vehicle-sedan {
+      background-image:
+        linear-gradient(90deg, rgba(18, 19, 24, 0.18), transparent),
+        url("https://images.pexels.com/photos/28673504/pexels-photo-28673504.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .vehicle-mpv {
+      background-image:
+        linear-gradient(90deg, rgba(18, 19, 24, 0.18), transparent),
+        url("https://images.pexels.com/photos/12960352/pexels-photo-12960352.jpeg?auto=compress&cs=tinysrgb&w=900");
+    }
+
+    .vehicle-alphard {
+      background-image: url("assets/about-charter.png");
+      background-position: 72% 62%;
+    }
+
+    .vehicle-pilot {
+      background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=82");
+      background-position: center 58%;
+    }
+
+    .vehicle-starex {
+      background-image:
+        linear-gradient(90deg, rgba(18, 19, 24, 0.12), transparent),
+        url("https://images.pexels.com/photos/12960352/pexels-photo-12960352.jpeg?auto=compress&cs=tinysrgb&w=900");
+      background-position: center 66%;
+    }
+
+    .route-list {
+      padding: 8px 20px 14px;
+    }
+
+    .route {
+      min-height: 52px;
+      padding: 9px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 680px) {
+      .price-card-head {
+        min-height: 150px;
+        grid-template-columns: minmax(120px, 0.8fr) minmax(150px, 1.2fr);
+        padding: 14px 16px;
+      }
+
+      .vehicle-visual {
+        height: 116px;
+      }
+
+      .price-card h3 {
+        font-size: 22px;
+      }
+
+      .route-list {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+    }
+
+    /* Mobile readability and typography consistency */
+    .section-head p,
+    .about-showcase .section-head p {
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .section-kicker,
+    .location-head span {
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    #pricing .section-head h2 {
+      color: var(--gold);
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(8, 8, 8, 0.06) 0%, rgba(8, 8, 8, 0.14) 32%, rgba(8, 8, 8, 0.62) 73%, rgba(8, 8, 8, 0.78) 100%),
+          url("https://images.pexels.com/photos/36377051/pexels-photo-36377051.jpeg?auto=compress&cs=tinysrgb&w=1200") 61% center / cover no-repeat;
+      }
+
+      .hero h1,
+      .hero-copy,
+      .eyebrow {
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+      }
+
+      .about-showcase .about-content {
+        width: 100%;
+        max-width: none;
+      }
+
+      .about-showcase .section-head {
+        width: 100%;
+        max-width: none;
+      }
+
+      .about-showcase h2 {
+        max-width: 100%;
+        font-size: 36px;
+        line-height: 1.05;
+      }
+
+      .section-head p,
+      .about-showcase .section-head p,
+      .location-head p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      #pricing .section-head h2 {
+        font-size: 34px;
+        line-height: 1.08;
+      }
+    }
+
+    /* Premium vehicle catalogue cards */
+    .pricing-grid {
+      gap: 18px;
+    }
+
+    .price-card {
+      border: 1px solid #34353a;
+      border-radius: 8px;
+      background: #0f1013;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+      transition: border-color 200ms ease, transform 200ms ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-3px);
+      border-color: #695a12;
+    }
+
+    .price-card-head {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 22px 24px 0;
+      border-bottom: 1px solid #2b2c31;
+      background:
+        radial-gradient(circle at 75% 58%, rgba(242, 197, 0, 0.08), transparent 34%),
+        #0b0c0f;
+    }
+
+    .price-card-head > div:first-child {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .price-card h3 {
+      max-width: 72%;
+      font-size: clamp(25px, 2.3vw, 34px);
+    }
+
+    .price-card small {
+      margin: 0;
+      padding: 6px 10px;
+      border: 1px solid #4a4120;
+      border-radius: 999px;
+      background: #1c1a10;
+      color: #f5d84e;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .vehicle-visual {
+      flex: 1;
+      width: 100%;
+      height: auto;
+      min-height: 232px;
+      margin-top: -4px;
+      border-radius: 0;
+      background-color: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      filter: none;
+    }
+
+    .vehicle-sedan {
+      background-image: url("assets/vehicle-sedan-v2.png");
+    }
+
+    .vehicle-mpv {
+      background-image: url("assets/vehicle-mpv-v2.png");
+    }
+
+    .vehicle-alphard {
+      background-image: url("assets/vehicle-alphard-v2.png");
+      background-position: center 46%;
+    }
+
+    .vehicle-pilot {
+      background-image: url("assets/vehicle-pilot-v2.png");
+    }
+
+    .vehicle-starex {
+      background-image: url("assets/vehicle-starex-v2.png");
+    }
+
+    .route-list {
+      display: grid;
+      gap: 8px;
+      padding: 16px 18px 18px;
+      background: #111216;
+    }
+
+    .route {
+      min-height: 52px;
+      padding: 10px 14px;
+      border: 1px solid #2e3036;
+      border-radius: 5px;
+      background: #17181c;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .route:first-child {
+      border-left: 3px solid var(--gold);
+      background: #1b1b19;
+    }
+
+    .route:hover {
+      transform: translateX(3px);
+      border-color: #72631d;
+      background: #1c1d21;
+    }
+
+    .route strong {
+      font-size: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .price-card-head {
+        min-height: 260px;
+        display: flex;
+        padding: 18px 16px 0;
+      }
+
+      .price-card h3 {
+        max-width: 68%;
+        font-size: 24px;
+      }
+
+      .vehicle-visual {
+        min-height: 190px;
+      }
+
+      .route-list {
+        padding: 12px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .price-card-head {
+        min-height: 270px;
+      }
+
+      .vehicle-visual {
+        min-height: 195px;
+      }
+
+      .price-card h3 {
+        font-size: 27px;
+      }
+    }
+
+    /* Transparent hero navigation and split pricing title */
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      border-bottom-color: transparent;
+      background: transparent;
+      box-shadow: none;
+      transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .nav.scrolled,
+    .nav.menu-open {
+      border-bottom-color: #292929;
+      background: rgba(10, 10, 10, 0.96);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      padding-top: 150px;
+    }
+
+    #pricing .section-head h2 {
+      color: #ffffff;
+    }
+
+    #pricing .pricing-accent {
+      color: var(--gold);
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding-top: 106px;
+      }
+
+      #pricing .section-head h2 {
+        color: #ffffff;
+      }
+    }
+
+    /* Floating booking action and modal */
+    .floating-book {
+      position: fixed;
+      z-index: 30;
+      right: 24px;
+      bottom: 24px;
+      min-width: 154px;
+      min-height: 54px;
+      border: 1px solid #ffe568;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111111;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38), 0 0 0 4px rgba(242, 197, 0, 0.12);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .floating-book:hover {
+      transform: translateY(-3px);
+      background: #ffdb20;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.46), 0 0 0 5px rgba(242, 197, 0, 0.16);
+    }
+
+    .floating-book:active {
+      transform: scale(0.95);
+    }
+
+    .booking-modal {
+      position: fixed;
+      z-index: 60;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 200ms ease, visibility 200ms ease;
+    }
+
+    .booking-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .booking-dialog {
+      width: min(880px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      border: 1px solid #4b4115;
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(242, 197, 0, 0.12), transparent 28%),
+        #0d0e11;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
+    }
+
+    .booking-dialog-head {
+      position: sticky;
+      z-index: 2;
+      top: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 26px 28px 20px;
+      border-bottom: 1px solid #2d2e33;
+      background: rgba(13, 14, 17, 0.96);
+      backdrop-filter: blur(12px);
+    }
+
+    .booking-dialog-head span {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .booking-dialog-head h2 {
+      margin-top: 5px;
+      font-size: 32px;
+    }
+
+    .modal-close {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border: 1px solid #3d3e43;
+      border-radius: 50%;
+      background: #17181c;
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .booking-form {
+      padding: 24px 28px 28px;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: #ececec;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 14px;
+      border: 1px solid #37383e;
+      border-radius: 5px;
+      outline: none;
+      background: #15161a;
+      color: #ffffff;
+      font: inherit;
+      font-size: 14px;
+      color-scheme: dark;
+    }
+
+    .form-field textarea {
+      min-height: 90px;
+      padding-top: 13px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(242, 197, 0, 0.1);
+    }
+
+    .booking-submit {
+      width: 100%;
+      min-height: 54px;
+      margin-top: 22px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--gold);
+      color: #111111;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .booking-intro {
+      margin-bottom: 22px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--gold);
+      background: #17181c;
+    }
+
+    .booking-intro strong {
+      display: block;
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .booking-intro p {
+      margin-top: 5px;
+      color: #bfc1c8;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .fare-summary {
+      margin-top: 22px;
+      padding: 20px;
+      border: 1px solid #454020;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #191a1e, #111214);
+    }
+
+    .fare-summary-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .fare-summary-head span,
+    .fare-summary-head strong {
+      display: block;
+    }
+
+    .fare-summary-head span {
+      color: #c6c8cf;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .fare-summary-head strong {
+      margin-top: 5px;
+      color: var(--gold);
+      font-size: clamp(25px, 4vw, 38px);
+      line-height: 1.1;
+    }
+
+    .fare-summary-head small {
+      max-width: 310px;
+      color: #a6a8af;
+      line-height: 1.45;
+      text-align: right;
+    }
+
+    .fare-breakdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #303137;
+    }
+
+    .fare-breakdown[hidden] {
+      display: none;
+    }
+
+    .fare-breakdown div {
+      padding: 10px 12px;
+      border: 1px solid #303137;
+      border-radius: 4px;
+      background: #121317;
+    }
+
+    .fare-breakdown span,
+    .fare-breakdown strong {
+      display: block;
+    }
+
+    .fare-breakdown span {
+      color: #989ba3;
+      font-size: 11px;
+    }
+
+    .fare-breakdown strong {
+      margin-top: 4px;
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    .fare-summary > p {
+      margin-top: 14px;
+      color: #8f929a;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 620px) {
+      .floating-book {
+        right: 16px;
+        bottom: 16px;
+        min-width: 132px;
+        min-height: 48px;
+      }
+
+      .booking-modal {
+        align-items: end;
+        padding: 0;
+      }
+
+      .booking-dialog {
+        width: 100%;
+        max-height: 92vh;
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .booking-dialog-head,
+      .booking-form {
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .form-field.full {
+        grid-column: auto;
+      }
+
+      .fare-summary-head {
+        display: block;
+      }
+
+      .fare-summary-head small {
+        display: block;
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .fare-breakdown {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Keep the mobile drawer viewport-sized while the header is fixed. */
+    @media (max-width: 560px) {
+      .nav.menu-open {
+        backdrop-filter: none;
+      }
+
+      .nav-actions {
+        position: fixed;
+        z-index: 1001;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        width: min(88vw, 380px);
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100vh;
+        padding: 78px 20px 22px;
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: #0d0e11;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate3d(105%, 0, 0);
+        transition: transform 240ms ease, visibility 240ms ease;
+      }
+
+      .nav.menu-open .nav-actions {
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .nav-actions .nav-links {
+        display: flex !important;
+        flex: 0 0 auto;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+      }
+
+      .nav-actions .nav-links a {
+        display: flex;
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: 52px;
+        align-items: center;
+        padding: 0 2px;
+        border-bottom: 1px solid #303136;
+      }
+
+      .nav-actions .nav-book {
+        display: none;
+      }
+
+      .nav-actions .language-switcher {
+        flex: 0 0 auto;
+        margin-top: 18px;
+      }
+
+      .menu-backdrop {
+        z-index: 1000;
+      }
+
+      .nav.menu-open .menu-toggle {
+        z-index: 1002;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="TP Team Express Transport home">
+          <span class="brand-name">TP Team Express</span>
+          <span class="brand-type">Transport</span>
+        </a>
+        <div class="nav-actions">
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Fleet</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div class="language-switcher" role="group" aria-label="Language selection">
+            <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          </div>
+          <a class="btn btn-primary nav-book" href="#book"><span>Book Now</span><span class="book-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="menu-backdrop" type="button" aria-label="Close menu" tabindex="-1"></button>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div>
+        <div class="eyebrow">Premium cross-border charter car service</div>
+        <h1>Singapore to Malaysia luxury charter service.</h1>
+        <p class="hero-copy">
+          Professional private transport for airport transfers, family trips, business travel and cross-border journeys, with comfortable vehicles and reliable drivers.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book Now</a>
+          <a class="btn btn-secondary" href="#pricing">View Prices</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero-stats" aria-label="Service highlights">
+      <div class="stat"><b>SG ⇄ MY</b><span>Direct cross-border transport</span></div>
+      <div class="stat"><b>24/7</b><span>Advance booking support</span></div>
+      <div class="stat"><b>5 Types</b><span>Vehicle choices for every group</span></div>
+    </div>
+
+    <section class="about-showcase" id="about">
+      <div class="section-inner">
+        <div class="about-content">
+          <div class="section-head">
+            <div class="section-kicker">About Us</div>
+            <h2><span>Professional Singapore and Malaysia</span> <span class="accent">transport service.</span></h2>
+            <p>
+              We specialize in Singapore and Malaysia cross-border transport services with safe, punctual and premium travel experiences. Our company focuses on customer satisfaction and aims to provide dependable transportation for every passenger.
+            </p>
+          </div>
+        </div>
+        <div class="about-visual" role="img" aria-label="Luxury charter MPVs between Singapore and Malaysia"></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-kicker">Why Choose Us</div>
+          <h2><span>Everything you need for a</span> <span class="journey-accent">smooth private journey.</span></h2>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="feature-icon">01</div>
+            <h3>Luxury Cars & MPV</h3>
+            <p>Multiple vehicle options to suit different group sizes, luggage needs and comfort preferences.</p>
+            <div class="feature-media feature-media-car"></div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">02</div>
+            <h3>Airport Transfer</h3>
+            <p>Professional airport transfer for Changi Airport, Senai Airport and other key pickup points.</p>
+            <div class="feature-media feature-media-airport"></div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">03</div>
+            <h3>On Time</h3>
+            <p>Experienced drivers with punctual pickup arrangements for planned trips and transfers.</p>
+            <div class="feature-media feature-media-driver"></div>
+          </article>
+          <article class="feature">
+            <div class="feature-icon">04</div>
+            <h3>Premium Service</h3>
+            <p>Friendly support and smooth travel experience from booking to arrival.</p>
+            <div class="feature-media feature-media-interior"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-kicker">Car Type & Price</div>
+          <h2><span class="pricing-accent">Clear route pricing</span> <span>for Singapore and Malaysia charter trips.</span></h2>
+          <p>Prices below follow the original route list. The following locations have an additional +S50 charge for transportation: Merlion Park, Harbourfront, Gardens by the Bay, Universal Studios Singapore, Sentosa Singapore, Marina Bay Cruise Centre and Marina Bay Sands.</p>
+        </div>
+
+        <div class="location-head">
+          <div>
+            <span>Selected Locations</span>
+            <h3>Additional pickup locations</h3>
+          </div>
+          <p>Real Singapore destinations. Each location below carries the same additional transport charge.</p>
+        </div>
+
+        <div class="pricing-note">
+          <div><b>!</b><span>Selected pickup locations have an additional transportation charge</span></div>
+          <strong>+S$50</strong>
+        </div>
+
+        <div class="location-grid">
+          <article class="location-card location-merlion">
+            <div class="location-card-copy"><h4>Merlion Park</h4><strong>+S$50</strong></div>
+          </article>
+          <article class="location-card location-harbourfront">
+            <div class="location-card-copy"><h4>HarbourFront</h4><strong>+S$50</strong></div>
+          </article>
+          <article class="location-card location-gardens">
+            <div class="location-card-copy"><h4>Gardens by the Bay</h4><strong>+S$50</strong></div>
+          </article>
+          <article class="location-card location-universal">
+            <div class="location-card-copy"><h4>Universal Studios Singapore</h4><strong>+S$50</strong></div>
+          </article>
+          <article class="location-card location-sentosa">
+            <div class="location-card-copy"><h4>Sentosa Singapore</h4><strong>+S$50</strong></div>
+          </article>
+          <article class="location-card location-cruise">
+            <div class="location-card-copy"><h4>Marina Bay Cruise Centre</h4><strong>+S$50</strong></div>
+          </article>
+          <article class="location-card location-marina">
+            <div class="location-card-copy"><h4>Marina Bay Sands</h4><strong>+S$50</strong></div>
+          </article>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="price-card-head">
+              <div><h3>Sedan</h3><small>1-4 Pax</small></div>
+              <div class="vehicle-visual vehicle-sedan" role="img" aria-label="Sedan vehicle"></div>
+            </div>
+            <div class="route-list">
+              <div class="route"><span>Changi Airport</span><strong>S130</strong></div>
+              <div class="route"><span>SG ⇄ Johor Bahru</span><strong>S80</strong></div>
+              <div class="route"><span>SG ⇄ Desaru</span><strong>S160</strong></div>
+              <div class="route"><span>SG ⇄ Malacca</span><strong>S240</strong></div>
+              <div class="route"><span>SG ⇄ Kuala Lumpur</span><strong>S330</strong></div>
+              <div class="route"><span>SG ⇄ Genting</span><strong>S350</strong></div>
+            </div>
+          </article>
+
+          <article class="price-card">
+            <div class="price-card-head">
+              <div><h3>7 Seat MPV</h3><small>4-6 Pax</small></div>
+              <div class="vehicle-visual vehicle-mpv" role="img" aria-label="7 seat MPV"></div>
+            </div>
+            <div class="route-list">
+              <div class="route"><span>Changi Airport</span><strong>S140</strong></div>
+              <div class="route"><span>SG ⇄ Johor Bahru</span><strong>S90</strong></div>
+              <div class="route"><span>SG ⇄ Desaru</span><strong>S170</strong></div>
+              <div class="route"><span>SG ⇄ Malacca</span><strong>S250</strong></div>
+              <div class="route"><span>SG ⇄ Kuala Lumpur</span><strong>S340</strong></div>
+              <div class="route"><span>SG ⇄ Genting</span><strong>S360</strong></div>
+            </div>
+          </article>
+
+          <article class="price-card">
+            <div class="price-card-head">
+              <div><h3>Alphard / Vellfire</h3><small>5-7 Pax</small></div>
+              <div class="vehicle-visual vehicle-alphard" role="img" aria-label="Alphard and Vellfire"></div>
+            </div>
+            <div class="route-list">
+              <div class="route"><span>Changi Airport</span><strong>S150</strong></div>
+              <div class="route"><span>SG ⇄ Johor Bahru</span><strong>S100</strong></div>
+              <div class="route"><span>SG ⇄ Desaru</span><strong>S180</strong></div>
+              <div class="route"><span>SG ⇄ Malacca</span><strong>S260</strong></div>
+              <div class="route"><span>SG ⇄ Kuala Lumpur</span><strong>S350</strong></div>
+              <div class="route"><span>SG ⇄ Genting</span><strong>S370</strong></div>
+            </div>
+          </article>
+
+          <article class="price-card">
+            <div class="price-card-head">
+              <div><h3>Alphard Pilot Seat</h3><small>1-5 Pax</small></div>
+              <div class="vehicle-visual vehicle-pilot" role="img" aria-label="Alphard pilot seat interior"></div>
+            </div>
+            <div class="route-list">
+              <div class="route"><span>Changi Airport</span><strong>S180</strong></div>
+              <div class="route"><span>SG ⇄ Johor Bahru</span><strong>S130</strong></div>
+              <div class="route"><span>SG ⇄ Desaru</span><strong>S210</strong></div>
+              <div class="route"><span>SG ⇄ Malacca</span><strong>S290</strong></div>
+              <div class="route"><span>SG ⇄ Kuala Lumpur</span><strong>S380</strong></div>
+              <div class="route"><span>SG ⇄ Genting</span><strong>S400</strong></div>
+            </div>
+          </article>
+
+          <article class="price-card">
+            <div class="price-card-head">
+              <div><h3>Starex</h3><small>7-9 Pax</small></div>
+              <div class="vehicle-visual vehicle-starex" role="img" aria-label="Starex passenger van"></div>
+            </div>
+            <div class="route-list">
+              <div class="route"><span>Changi Airport</span><strong>S200</strong></div>
+              <div class="route"><span>SG ⇄ Johor Bahru</span><strong>S150</strong></div>
+              <div class="route"><span>SG ⇄ Desaru</span><strong>S230</strong></div>
+              <div class="route"><span>SG ⇄ Malacca</span><strong>S310</strong></div>
+              <div class="route"><span>SG ⇄ Kuala Lumpur</span><strong>S400</strong></div>
+              <div class="route"><span>SG ⇄ Genting</span><strong>S420</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="book">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-kicker">Reserve Your Car</div>
+          <h2>Book your Singapore Malaysia private charter today.</h2>
+          <p>Share your pickup point, destination, travel date, time, passenger count and preferred car type for a quotation.</p>
+        </div>
+        <button class="btn btn-primary" type="button" data-open-booking>Book Now</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Thank you for choosing TP Team Express Transport.
+    </footer>
+  </main>
+  <button class="floating-book" type="button" data-open-booking>Book Now</button>
+
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <div class="booking-dialog">
+      <div class="booking-dialog-head">
+        <div>
+          <span>Private Charter Request</span>
+          <h2 id="booking-title">Book Your Journey</h2>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close booking form">×</button>
+      </div>
+
+      <form class="booking-form" id="booking-form">
+        <div class="booking-intro">
+          <strong>Instant fare estimate</strong>
+          <p>Select your route and vehicle to see an estimated charter price before submitting.</p>
+        </div>
+        <div class="booking-grid">
+          <div class="form-field full">
+            <label for="booking-currency">Display Currency</label>
+            <select id="booking-currency" name="currency" required>
+              <option value="SGD">Singapore Dollar (SGD)</option>
+              <option value="MYR">Malaysian Ringgit (MYR)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-name">Full Name</label>
+            <input id="booking-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="booking-phone">WhatsApp Number</label>
+            <input id="booking-phone" name="phone" type="tel" autocomplete="tel" placeholder="+65 / +60" required>
+          </div>
+          <div class="form-field">
+            <label for="booking-pickup">Pickup Location</label>
+            <select id="booking-pickup" name="pickup" required>
+              <option value="">Select pickup location</option>
+              <optgroup label="Singapore">
+                <option value="Singapore">Singapore</option>
+                <option value="Changi Airport">Changi Airport</option>
+                <option value="Merlion Park" data-surcharge="50">Merlion Park (+S$50)</option>
+                <option value="HarbourFront" data-surcharge="50">HarbourFront (+S$50)</option>
+                <option value="Gardens by the Bay" data-surcharge="50">Gardens by the Bay (+S$50)</option>
+                <option value="Universal Studios Singapore" data-surcharge="50">Universal Studios Singapore (+S$50)</option>
+                <option value="Sentosa Singapore" data-surcharge="50">Sentosa Singapore (+S$50)</option>
+                <option value="Marina Bay Cruise Centre" data-surcharge="50">Marina Bay Cruise Centre (+S$50)</option>
+                <option value="Marina Bay Sands" data-surcharge="50">Marina Bay Sands (+S$50)</option>
+              </optgroup>
+              <optgroup label="Malaysia">
+                <option value="Johor Bahru">Johor Bahru</option>
+                <option value="Desaru">Desaru</option>
+                <option value="Malacca">Malacca</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Genting">Genting</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-destination">Destination</label>
+            <select id="booking-destination" name="destination" required>
+              <option value="">Select destination</option>
+              <optgroup label="Malaysia">
+                <option value="Johor Bahru">Johor Bahru</option>
+                <option value="Desaru">Desaru</option>
+                <option value="Malacca">Malacca</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Genting">Genting</option>
+              </optgroup>
+              <optgroup label="Singapore">
+                <option value="Singapore">Singapore</option>
+                <option value="Changi Airport">Changi Airport</option>
+                <option value="Merlion Park" data-surcharge="50">Merlion Park (+S$50)</option>
+                <option value="HarbourFront" data-surcharge="50">HarbourFront (+S$50)</option>
+                <option value="Gardens by the Bay" data-surcharge="50">Gardens by the Bay (+S$50)</option>
+                <option value="Universal Studios Singapore" data-surcharge="50">Universal Studios Singapore (+S$50)</option>
+                <option value="Sentosa Singapore" data-surcharge="50">Sentosa Singapore (+S$50)</option>
+                <option value="Marina Bay Cruise Centre" data-surcharge="50">Marina Bay Cruise Centre (+S$50)</option>
+                <option value="Marina Bay Sands" data-surcharge="50">Marina Bay Sands (+S$50)</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-date">Travel Date</label>
+            <input id="booking-date" name="date" type="date" required>
+          </div>
+          <div class="form-field">
+            <label for="booking-time">Pickup Time</label>
+            <input id="booking-time" name="time" type="time" required>
+          </div>
+          <div class="form-field">
+            <label for="booking-passengers">Passengers</label>
+            <select id="booking-passengers" name="passengers" required>
+              <option value="">Select passenger count</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              <option>6</option><option>7</option><option>8</option><option>9</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-luggage">Luggage</label>
+            <select id="booking-luggage" name="luggage" required>
+              <option value="">Select luggage count</option>
+              <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6+</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="booking-vehicle">Preferred Vehicle</label>
+            <select id="booking-vehicle" name="vehicle" required>
+              <option value="">Select vehicle type</option>
+              <option>Sedan</option>
+              <option>7 Seat MPV</option>
+              <option>Alphard / Vellfire</option>
+              <option>Alphard Pilot Seat</option>
+              <option>Starex</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-flight">Flight Number (Optional)</label>
+            <input id="booking-flight" name="flight" type="text">
+          </div>
+          <div class="form-field">
+            <label for="booking-trip">Trip Type</label>
+            <select id="booking-trip" name="trip" required>
+              <option value="one-way">One Way</option>
+              <option value="return">Return Trip</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-nationality">Nationality</label>
+            <select id="booking-nationality" name="nationality" required>
+              <option value="">Select nationality</option>
+              <option>Singaporean</option>
+              <option>Malaysian</option>
+              <option>Thai</option>
+              <option>Vietnamese</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-extra-stops">Additional Stops</label>
+            <select id="booking-extra-stops" name="extraStops">
+              <option value="0">No additional stop</option>
+              <option value="1">1 stop (+S$10)</option>
+              <option value="2">2 stops (+S$20)</option>
+              <option value="3">3 stops (+S$30)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-payment">Payment Method</label>
+            <select id="booking-payment" name="payment" required>
+              <option value="">Select payment method</option>
+              <option>Cash</option>
+              <option>Bank Transfer</option>
+              <option>ZaloPay</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="booking-notes">Additional Notes</label>
+            <textarea id="booking-notes" name="notes" placeholder="Child seat, extra stops or other requests"></textarea>
+          </div>
+        </div>
+        <aside class="fare-summary" aria-live="polite">
+          <div class="fare-summary-head">
+            <div><span>Estimated Fare</span><strong id="fare-total">Select route & vehicle</strong></div>
+            <small id="fare-status">Your price breakdown will appear here.</small>
+          </div>
+          <div class="fare-breakdown" id="fare-breakdown" hidden>
+            <div><span>Base route fare</span><strong id="fare-base">S$0</strong></div>
+            <div><span>Location surcharge</span><strong id="fare-location">S$0</strong></div>
+            <div><span>Additional stops</span><strong id="fare-stops">S$0</strong></div>
+            <div><span>Trip multiplier</span><strong id="fare-trip">×1</strong></div>
+          </div>
+          <p>Estimate only. The team will confirm availability and the final fare before your journey.</p>
+        </aside>
+        <button class="booking-submit" type="submit">Confirm & Send via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    const zh = {
+      "About": "关于我们",
+      "Services": "服务优势",
+      "Fleet": "车队",
+      "Pricing": "车型价格",
+      "Book Now": "立即预约",
+      "Premium cross-border charter car service": "尊贵跨境包车服务",
+      "Singapore to Malaysia luxury charter service.": "新加坡至马来西亚尊贵包车服务。",
+      "Professional private transport for airport transfers, family trips, business travel and cross-border journeys, with comfortable vehicles and reliable drivers.": "提供机场接送、家庭出游、商务行程及跨境交通服务，舒适车型配合可靠司机，让每一段旅程更轻松。",
+      "View Prices": "查看价格",
+      "Private, comfortable and direct": "专属、舒适、直达",
+      "Choose Sedan, 7-seat MPV, Alphard, Vellfire, Alphard Pilot Seat or Starex for your Singapore and Malaysia journey.": "可选择轿车、7座 MPV、Alphard、Vellfire、Alphard Pilot Seat 或 Starex，满足不同的新马出行需求。",
+      "Direct cross-border transport": "新马跨境直达接送",
+      "Advance booking support": "全天候预约支持",
+      "5 Types": "5 种车型",
+      "Vehicle choices for every group": "满足不同人数的车型选择",
+      "Booking Support": "预约支持",
+      "Vehicle Choices": "车型选择",
+      "Door-to-Door": "点对点接送",
+      "Convenient Travel": "便捷出行",
+      "Singapore": "新加坡",
+      "Malaysia": "马来西亚",
+      "Vehicle categories": "多种车型选择",
+      "Direct": "直达",
+      "Door-to-door service": "点对点接送服务",
+      "About Us": "关于我们",
+      "Professional Singapore and Malaysia transport service.": "专业的新加坡及马来西亚包车服务。",
+      "Professional Singapore and Malaysia": "专业的新加坡及马来西亚",
+      "transport service.": "包车服务。",
+      "We specialize in Singapore and Malaysia cross-border transport services with safe, punctual and premium travel experiences. Our company focuses on customer satisfaction and aims to provide dependable transportation for every passenger.": "我们专注于新加坡与马来西亚跨境包车服务，以安全、准时和优质的出行体验为核心。我们重视每一位顾客的需求，致力于为每位乘客提供值得信赖的交通服务。",
+      "Why Choose Us": "为什么选择我们",
+      "Everything you need for a smooth private journey.": "舒适安心的私人行程，从这里开始。",
+      "Everything you need for a": "一切所需，只为",
+      "smooth private journey.": "舒适安心的私人行程。",
+      "Luxury Cars & MPV": "豪华轿车与 MPV",
+      "Multiple vehicle options to suit different group sizes, luggage needs and comfort preferences.": "多种车型可选，满足不同人数、行李数量与舒适度需求。",
+      "Airport Transfer": "机场接送",
+      "Professional airport transfer for Changi Airport, Senai Airport and other key pickup points.": "提供樟宜机场、士乃机场及其他主要地点的专业接送服务。",
+      "On Time": "准时可靠",
+      "Experienced drivers with punctual pickup arrangements for planned trips and transfers.": "经验丰富的司机准时抵达，妥善安排每一趟预约行程与接送。",
+      "Premium Service": "优质服务",
+      "Friendly support and smooth travel experience from booking to arrival.": "从预约到抵达，全程提供贴心协助与顺畅舒适的出行体验。",
+      "Car Type & Price": "车型与价格",
+      "Clear route pricing for Singapore and Malaysia charter trips.": "新马包车路线，价格清楚透明。",
+      "Clear route pricing": "清晰透明的路线价格",
+      "for Singapore and Malaysia charter trips.": "适用于新加坡及马来西亚包车行程。",
+      "Prices below follow the original route list. The following locations have an additional +S50 charge for transportation: Melon Park, Harbourfront, Gardens by the Bay, Universal Studios Singapore, Sentosa Singapore, Marina Bay Cruise Centre and Marina Bay Sands.": "以下价格沿用原有路线收费。以下地点需另加 S$50 接送费：Melon Park、Harbourfront、Gardens by the Bay、Universal Studios Singapore、Sentosa Singapore、Marina Bay Cruise Centre 及 Marina Bay Sands。",
+      "Prices below follow the original route list. The following locations have an additional +S50 charge for transportation: Merlion Park, Harbourfront, Gardens by the Bay, Universal Studios Singapore, Sentosa Singapore, Marina Bay Cruise Centre and Marina Bay Sands.": "以下价格沿用原有路线收费。以下地点需另加 S$50 接送费：鱼尾狮公园、港湾中心、滨海湾花园、新加坡环球影城、新加坡圣淘沙、滨海湾邮轮中心及滨海湾金沙。",
+      "Singapore to Malaysia Charter Car": "新加坡至马来西亚包车",
+      "Additional selected-location charge: +S50": "指定地点附加费：+S$50",
+      "Selected pickup locations have an additional transportation charge": "以下指定上车地点需收取额外交通费",
+      "Selected Locations": "指定地点",
+      "Additional pickup locations": "附加收费上车地点",
+      "Real Singapore destinations. Each location below carries the same additional transport charge.": "以下均为新加坡实际地点，每个地点收取相同的额外交通费。",
+      "Merlion Park": "鱼尾狮公园",
+      "HarbourFront": "港湾中心",
+      "Gardens by the Bay": "滨海湾花园",
+      "Universal Studios Singapore": "新加坡环球影城",
+      "Sentosa Singapore": "新加坡圣淘沙",
+      "Marina Bay Cruise Centre": "滨海湾邮轮中心",
+      "Marina Bay Sands": "滨海湾金沙",
+      "1-4 Pax": "1-4 人",
+      "4-6 Pax": "4-6 人",
+      "5-7 Pax": "5-7 人",
+      "1-5 Pax": "1-5 人",
+      "7-9 Pax": "7-9 人",
+      "Changi Airport": "樟宜机场",
+      "SG ⇄ Johor Bahru": "新加坡 ⇄ 新山",
+      "SG ⇄ Desaru": "新加坡 ⇄ 迪沙鲁",
+      "SG ⇄ Malacca": "新加坡 ⇄ 马六甲",
+      "SG ⇄ Kuala Lumpur": "新加坡 ⇄ 吉隆坡",
+      "SG ⇄ Genting": "新加坡 ⇄ 云顶",
+      "Reserve Your Car": "预约您的专车",
+      "Book your Singapore Malaysia private charter today.": "立即预约您的新马私人包车。",
+      "Share your pickup point, destination, travel date, time, passenger count and preferred car type for a quotation.": "请提供上车地点、目的地、出行日期、时间、乘客人数及心仪车型，我们将为您报价。",
+      "Thank you for choosing TP Team Express Transport.": "感谢您选择 TP Team Express Transport。",
+      "Private Charter Request": "私人包车预约",
+      "Book Your Journey": "预约您的行程",
+      "Instant fare estimate": "即时车费估算",
+      "Select your route and vehicle to see an estimated charter price before submitting.": "选择路线和车型后，即可在提交前查看包车预估价格。",
+      "Display Currency": "显示币种",
+      "Full Name": "姓名",
+      "WhatsApp Number": "WhatsApp号码",
+      "Pickup Location": "上车地点",
+      "Select pickup location": "选择上车地点",
+      "Destination": "目的地",
+      "Select destination": "选择目的地",
+      "Travel Date": "出行日期",
+      "Pickup Time": "上车时间",
+      "Passengers": "乘客人数",
+      "Select passenger count": "选择乘客人数",
+      "Luggage": "行李数量",
+      "Select luggage count": "选择行李数量",
+      "Preferred Vehicle": "心仪车型",
+      "Select vehicle type": "选择车型",
+      "Flight Number (Optional)": "航班号码（选填）",
+      "Trip Type": "行程类型",
+      "One Way": "单程",
+      "Return Trip": "往返",
+      "Nationality": "国籍",
+      "Select nationality": "选择国籍",
+      "Singaporean": "新加坡籍",
+      "Malaysian": "马来西亚籍",
+      "Thai": "泰国籍",
+      "Vietnamese": "越南籍",
+      "Other": "其他",
+      "Additional Stops": "额外停靠点",
+      "No additional stop": "无需额外停靠",
+      "Payment Method": "付款方式",
+      "Select payment method": "选择付款方式",
+      "Cash": "现金",
+      "Bank Transfer": "银行转账",
+      "Additional Notes": "其他备注",
+      "Estimated Fare": "预估车费",
+      "Select route & vehicle": "请选择路线与车型",
+      "Your price breakdown will appear here.": "价格明细会显示在这里。",
+      "Base route fare": "路线基础车费",
+      "Location surcharge": "地点附加费",
+      "Additional stops": "额外停靠",
+      "Trip multiplier": "行程倍数",
+      "Estimate only. The team will confirm availability and the final fare before your journey.": "此价格仅供预估，团队将在出发前确认车辆安排及最终收费。",
+      "Confirm & Send via WhatsApp": "确认并通过 WhatsApp 发送"
+    };
+
+    const translatableNodes = [...document.querySelectorAll("body *")]
+      .filter((element) => element.children.length === 0 && element.textContent.trim())
+      .map((element) => ({ element, en: element.textContent.trim() }))
+      .filter(({ en }) => Object.prototype.hasOwnProperty.call(zh, en));
+
+    function setLanguage(language) {
+      const isChinese = language === "zh";
+      document.documentElement.lang = isChinese ? "zh-CN" : "en";
+      document.title = isChinese
+        ? "TP Team Express Transport｜新加坡马来西亚尊贵包车"
+        : "TP Team Express Transport | Singapore Malaysia Luxury Charter";
+
+      translatableNodes.forEach(({ element, en }) => {
+        element.textContent = isChinese ? zh[en] : en;
+      });
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === language));
+      });
+
+      document.querySelector(".nav").setAttribute("aria-label", isChinese ? "主导航" : "Main navigation");
+      document.querySelector(".language-switcher").setAttribute("aria-label", isChinese ? "语言选择" : "Language selection");
+      document.querySelector(".hero-stats").setAttribute("aria-label", isChinese ? "服务亮点" : "Service highlights");
+      const mobileMenuButton = document.querySelector(".menu-toggle");
+      const menuIsOpen = mobileMenuButton.getAttribute("aria-expanded") === "true";
+      mobileMenuButton.setAttribute("aria-label", isChinese
+        ? (menuIsOpen ? "关闭菜单" : "打开菜单")
+        : (menuIsOpen ? "Close menu" : "Open menu"));
+      localStorage.setItem("tp-language", language);
+      if (typeof updateFareEstimate === "function") updateFareEstimate();
+    }
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    const nav = document.querySelector(".nav");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuBackdrop = document.querySelector(".menu-backdrop");
+
+    function updateNavBackground() {
+      nav.classList.toggle("scrolled", window.scrollY > 24);
+    }
+
+    window.addEventListener("scroll", updateNavBackground, { passive: true });
+    updateNavBackground();
+
+    function closeMenu() {
+      nav.classList.remove("menu-open");
+      document.body.style.overflow = "";
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", document.documentElement.lang === "zh-CN" ? "打开菜单" : "Open menu");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("menu-open");
+      document.body.style.overflow = isOpen ? "hidden" : "";
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen
+        ? (document.documentElement.lang === "zh-CN" ? "关闭菜单" : "Close menu")
+        : (document.documentElement.lang === "zh-CN" ? "打开菜单" : "Open menu"));
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    menuBackdrop.addEventListener("click", closeMenu);
+
+    const bookingModal = document.querySelector(".booking-modal");
+    const bookingForm = document.querySelector("#booking-form");
+    const modalClose = document.querySelector(".modal-close");
+    const bookingPickup = document.querySelector("#booking-pickup");
+    const bookingDestination = document.querySelector("#booking-destination");
+    const bookingVehicle = document.querySelector("#booking-vehicle");
+    const bookingCurrency = document.querySelector("#booking-currency");
+    const bookingTrip = document.querySelector("#booking-trip");
+    const bookingExtraStops = document.querySelector("#booking-extra-stops");
+    const fareBreakdown = document.querySelector("#fare-breakdown");
+    const SGD_TO_MYR = 3.3;
+    let currentFare = null;
+
+    const routePrices = {
+      "Sedan": { changi: 130, "Johor Bahru": 80, Desaru: 160, Malacca: 240, "Kuala Lumpur": 330, Genting: 350 },
+      "7 Seat MPV": { changi: 140, "Johor Bahru": 90, Desaru: 170, Malacca: 250, "Kuala Lumpur": 340, Genting: 360 },
+      "Alphard / Vellfire": { changi: 150, "Johor Bahru": 100, Desaru: 180, Malacca: 260, "Kuala Lumpur": 350, Genting: 370 },
+      "Alphard Pilot Seat": { changi: 180, "Johor Bahru": 130, Desaru: 210, Malacca: 290, "Kuala Lumpur": 380, Genting: 400 },
+      "Starex": { changi: 200, "Johor Bahru": 150, Desaru: 230, Malacca: 310, "Kuala Lumpur": 400, Genting: 420 }
+    };
+
+    const malaysiaRoutes = ["Johor Bahru", "Desaru", "Malacca", "Kuala Lumpur", "Genting"];
+
+    function selectedSurcharge(select) {
+      return Number(select.options[select.selectedIndex]?.dataset.surcharge || 0);
+    }
+
+    function getRouteKey() {
+      const pickup = bookingPickup.value;
+      const destination = bookingDestination.value;
+      if (!pickup || !destination || pickup === destination) return "";
+      const pickupIsMalaysia = malaysiaRoutes.includes(pickup);
+      const destinationIsMalaysia = malaysiaRoutes.includes(destination);
+      if (pickupIsMalaysia !== destinationIsMalaysia) return pickupIsMalaysia ? pickup : destination;
+      if (pickup === "Changi Airport" || destination === "Changi Airport") return "changi";
+      return "";
+    }
+
+    function formatFare(amountSgd) {
+      if (bookingCurrency.value === "MYR") return `RM ${Math.round(amountSgd * SGD_TO_MYR).toLocaleString("en-MY")}`;
+      return `S$${amountSgd.toLocaleString("en-SG")}`;
+    }
+
+    function updateFareEstimate() {
+      const isChinese = document.documentElement.lang === "zh-CN";
+      const routeKey = getRouteKey();
+      const vehicle = bookingVehicle.value;
+      const base = routePrices[vehicle]?.[routeKey];
+      const totalElement = document.querySelector("#fare-total");
+      const statusElement = document.querySelector("#fare-status");
+
+      if (!base) {
+        currentFare = null;
+        fareBreakdown.hidden = true;
+        totalElement.textContent = isChinese ? "请选择路线与车型" : "Select route & vehicle";
+        statusElement.textContent = isChinese
+          ? "新加坡境内其他路线请提交资料获取报价。"
+          : "Submit your details for other Singapore-only routes.";
+        return;
+      }
+
+      const locationSurcharge = selectedSurcharge(bookingPickup) + selectedSurcharge(bookingDestination);
+      const stops = Number(bookingExtraStops.value || 0) * 10;
+      const multiplier = bookingTrip.value === "return" ? 2 : 1;
+      const totalSgd = (base + locationSurcharge + stops) * multiplier;
+      const routeLabel = routeKey === "changi" ? "Changi Airport" : `Singapore ⇄ ${routeKey}`;
+
+      currentFare = { base, locationSurcharge, stops, multiplier, totalSgd, routeLabel };
+      fareBreakdown.hidden = false;
+      totalElement.textContent = formatFare(totalSgd);
+      statusElement.textContent = `${vehicle} · ${routeLabel}`;
+      document.querySelector("#fare-base").textContent = formatFare(base);
+      document.querySelector("#fare-location").textContent = formatFare(locationSurcharge);
+      document.querySelector("#fare-stops").textContent = formatFare(stops);
+      document.querySelector("#fare-trip").textContent = `×${multiplier}`;
+    }
+
+    [bookingPickup, bookingDestination, bookingVehicle, bookingCurrency, bookingTrip, bookingExtraStops]
+      .forEach((field) => field.addEventListener("change", updateFareEstimate));
+
+    const travelDate = document.querySelector("#booking-date");
+    travelDate.min = new Date().toISOString().split("T")[0];
+
+    function openBookingModal(event) {
+      if (event) event.preventDefault();
+      closeMenu();
+      bookingModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => document.querySelector("#booking-name").focus(), 100);
+    }
+
+    function closeBookingModal() {
+      bookingModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-open-booking], a[href='#book']").forEach((trigger) => {
+      trigger.addEventListener("click", openBookingModal);
+    });
+
+    modalClose.addEventListener("click", closeBookingModal);
+    bookingModal.addEventListener("click", (event) => {
+      if (event.target === bookingModal) closeBookingModal();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && bookingModal.classList.contains("open")) closeBookingModal();
+    });
+
+    bookingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      updateFareEstimate();
+      const data = new FormData(bookingForm);
+      const isChinese = document.documentElement.lang === "zh-CN";
+      const heading = isChinese ? "TP Team Express 包车预约" : "TP Team Express Booking Request";
+      const labels = isChinese
+        ? ["姓名", "WhatsApp", "上车地点", "目的地", "日期", "时间", "乘客", "行李", "车型", "航班", "行程", "国籍", "额外停靠", "付款方式", "备注"]
+        : ["Name", "WhatsApp", "Pickup", "Destination", "Date", "Time", "Passengers", "Luggage", "Vehicle", "Flight", "Trip", "Nationality", "Extra Stops", "Payment", "Notes"];
+      const keys = ["name", "phone", "pickup", "destination", "date", "time", "passengers", "luggage", "vehicle", "flight", "trip", "nationality", "extraStops", "payment", "notes"];
+      const lines = keys.map((key, index) => `${labels[index]}: ${data.get(key) || "-"}`);
+      const fareLine = currentFare
+        ? `${isChinese ? "预估车费" : "Estimated Fare"}: ${formatFare(currentFare.totalSgd)} (${currentFare.routeLabel})`
+        : `${isChinese ? "预估车费" : "Estimated Fare"}: ${isChinese ? "需人工报价" : "Manual quotation required"}`;
+      lines.push(fareLine);
+      window.open(`https://wa.me/?text=${encodeURIComponent([heading, "", ...lines].join("\n"))}`, "_blank", "noopener");
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    setLanguage(localStorage.getItem("tp-language") || "zh");
+  </script>
+</body>
+</html>
